@@ -6,6 +6,8 @@ const
     express = require('express'),
     app = express(),
     Car = require('./models/carSchema'),
+    Superhero = require('./models/superhero'),
+    Team = require('./models/team'), 
     bodyParser = require('body-parser'),
     path = require('path'),
     PORT = process.env.PORT || 8000;
@@ -84,6 +86,14 @@ app.use(express.static(__dirname + '/public/views'));
         });
 
         // DELETE (Delete)
+        app.delete('/api/cars/:id', async (req, res) => {
+            // Console log to test route connection
+            console.log(`Finding car id# ${req.params.id} to delete`);
+            // Find car with id and delete
+            await Car.findOneAndDelete({ _id: req.params.id });
+            // Response with 200 if successful and send message
+            res.status(200).send(`Successfully deleted car ID # ${req.params.id}`);
+        })
 
 
 // LISTENING ON PORT
