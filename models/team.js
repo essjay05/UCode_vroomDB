@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Create TEAM schema
 const teamSchema = new mongoose.Schema({
-    name: String,
+    name: { type: String, required: true },
     members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Superhero'}]
 }, { timestamps: true });
 

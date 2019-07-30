@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 // Create Quote Schema
-const quoteSchema = new mongoose.Schema({
-    line: String
+const quoteSchema = new mongoose.Schema({ 
+    line: String 
 }, { timestamps: true });
 
 // Create Superhero Schema
